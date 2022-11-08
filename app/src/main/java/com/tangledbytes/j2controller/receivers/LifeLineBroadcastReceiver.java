@@ -16,7 +16,10 @@ public class LifeLineBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         Log.d(TAG, "Broadcast Received: " + action);
-        speaker.say("Broadcast " + action.substring(action.lastIndexOf("."), action.length() - 1));
+        String actionSimplified = action.substring(action.lastIndexOf("."), action.length() - 1)
+                .replaceAll("_", "")
+                .toLowerCase();
+        speaker.say("Broadcast " + actionSimplified);
         Utils.startAppStarterService(context);
     }
 }
