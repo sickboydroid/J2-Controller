@@ -18,7 +18,7 @@ public class Speaker implements TextToSpeech.OnInitListener {
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.UK);
-            tts.setSpeechRate(2.5f);
+            tts.setSpeechRate(2f);
             say("TTS initiated");
             Log.d(TAG, "TTS successfully initiated");
         }
