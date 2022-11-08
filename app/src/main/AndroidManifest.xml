@@ -22,7 +22,7 @@
 
         <activity
             android:name=".music.MusicPlayerActivity"
-            android:launchMode="singleInstance"></activity>
+            android:launchMode="singleInstance" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -39,7 +39,7 @@
             android:enabled="true" />
 
         <receiver
-            android:name=".receivers.DeviceUnlockReceiver"
+            android:name=".receivers.LifeLineBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

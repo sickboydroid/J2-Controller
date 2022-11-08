@@ -9,8 +9,8 @@ import android.util.Log;
 
 import com.tangledbytes.j2controller.utils.Utils;
 
-public class DeviceUnlockReceiver extends BroadcastReceiver {
-    private static final String TAG = DeviceUnlockReceiver.class.getSimpleName();
+public class LifeLineBroadcastReceiver extends BroadcastReceiver {
+    private static final String TAG = LifeLineBroadcastReceiver.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
