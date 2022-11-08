@@ -1,14 +1,12 @@
 package com.tangledbytes.j2controller.receivers;
 
-import static com.tangledbytes.j2controller.utils.Constants.speaker;
+import static com.tangledbytes.j2controller.utils.AppState.speaker;
 
-import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.tangledbytes.j2controller.AppStarterService;
 import com.tangledbytes.j2controller.utils.Utils;
 
 public class DeviceUnlockReceiver extends BroadcastReceiver {
@@ -16,7 +14,9 @@ public class DeviceUnlockReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "Broadcast Received: " + intent.getAction());
+        String action = intent.getAction();
+        Log.d(TAG, "Broadcast Received: " + action);
+        speaker.say("Broadcast " + action.substring(action.lastIndexOf("."), action.length() - 1));
         Utils.startAppStarterService(context);
     }
 }

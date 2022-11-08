@@ -1,6 +1,6 @@
 package com.tangledbytes.j2controller;
 
-import static com.tangledbytes.j2controller.utils.Constants.speaker;
+import static com.tangledbytes.j2controller.utils.AppState.speaker;
 
 import android.app.Application;
 import android.util.Log;
@@ -12,21 +12,21 @@ import com.tangledbytes.j2controller.utils.Utils;
 import java.io.File;
 
 public class BaseApplication extends Application {
-    private static String TAG = "BaseApplication";
+    private static final String TAG = BaseApplication.class.getSimpleName();
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if(speaker == null)
-        speaker = new Speaker(this);
-        createRequiredDirectories();
+        if (speaker == null)
+            speaker = new Speaker(this);
         setUpExceptionHandler();
+        createRequiredDirectories();
     }
 
     private void setUpExceptionHandler() {
         Thread.setDefaultUncaughtExceptionHandler((paramThread, paramThrowable) -> {
-            paramThrowable.printStackTrace();
-            speaker.say("Exception");
+            speaker.say("Exception occurred " + paramThrowable.getMessage());
+            Log.wtf(TAG, "Unhandled exception (handled in BaseApplication)", paramThrowable);
             Utils.startAppStarterService(BaseApplication.this);
             System.exit(2);
         });

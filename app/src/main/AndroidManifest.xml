@@ -26,13 +26,13 @@
         android:configChanges="orientation"
         android:screenOrientation="portrait">
         <service
-            android:name=".AppStarterService"
+            android:name=".services.LifeLineService"
             android:enabled="true"
             android:exported="false"
             android:permission="TODO" />
 
         <activity
-            android:name=".MusicPlayerActivity"
+            android:name=".music.MusicPlayerActivity"
             android:exported="false"
             android:launchMode="singleInstance">
             <meta-data
@@ -64,5 +64,4 @@
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

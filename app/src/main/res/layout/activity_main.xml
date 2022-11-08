@@ -22,16 +22,16 @@
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnDeviceStatus"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Button 1" />
+        android:text="Device Status" />
 
     <Button
         android:id="@+id/btnNextSong"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Button" />
+        android:text="Temp" />
 </LinearLayout>
